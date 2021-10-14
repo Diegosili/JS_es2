@@ -5,9 +5,31 @@
     <body>
         <h1>JS ES 2</h1>
         <h2>Static HTML page: exercise 1 but with JQuery</h2>
+        <div id="div1"></div>
 
-        <div>Non premere il bottone!</div>
-        <button>CLICCAMI</button>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $("#div1").html("Non premere il bottone!");
+
+            var r = true;
+            $("body")
+            .append($("<button id='btn1'>CLICCAMI</button>"))
+            .click(function(){
+                if (r) {
+                    $("#btn1").attr("style", "background-color: RED");
+                    $("#div1").attr("style", "background-color: rgb(255, 0, 255)");
+                    $("#div1").html("Ti avevo detto di non premere MONA");
+                    r = false;
+                } else {
+                    $("#btn1").attr("style", "background-color: default");
+                    $("#div1").attr("style", "background-color: default");
+                    r = true;
+                }
+            });
+            console.log($("#div1"));
+
+            $("body").append($("<h3>Aggiungo un titolo H3</h3>"));
+            
+        </script>
     </body>
 </html>
